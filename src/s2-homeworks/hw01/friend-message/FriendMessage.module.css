@@ -1,31 +1,53 @@
 .friendMessage {
-
+    position: relative;
+    display: flex;
+    justify-content: start;
+    margin: 50px;
 }
 
 .friendImageAndText {
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
 }
 
 .friendImageAndText img {
-
+    position: absolute;
+    bottom: 0;
+    max-width: 48px;
+    max-height: 48px;
 }
 
 .friendText {
-
+    background-color: #F5F7FB;
+    border-radius: 5px;
+    padding: 8px 14px;
+    margin-left:65px ;
 }
 
 .friendText:after {
+    content: "";
+    background-color: #F5F7FB;
 
 }
 
 .friendName {
-
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
 }
 
 .friendMessageText {
-
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
 }
 
 .friendTime {
+    font-size: 10px;
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
 
 }
