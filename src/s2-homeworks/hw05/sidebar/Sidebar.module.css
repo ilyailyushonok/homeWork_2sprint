@@ -17,6 +17,8 @@
 }
 
 .nav a.active {
+    color: #f444f1;
+    background-color: #ffdd00;
 }
 .close {
 }
