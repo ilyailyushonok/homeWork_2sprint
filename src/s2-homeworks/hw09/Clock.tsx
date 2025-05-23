@@ -25,7 +25,7 @@ function Clock() {
 
     const stop = () => {
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-       timerId && clearTimeout(JSON.parse(timerId))
+        timerId && clearTimeout(JSON.parse(timerId))
         setTimerId(undefined)
     }
 
@@ -41,7 +41,7 @@ function Clock() {
     }
     const stringTime = `${dateCorrect(date.getHours())}:${dateCorrect(date.getMinutes())}:${dateCorrect(date.getSeconds())}` ||
         <br/> //'date->time' || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = `${dateCorrect(date.getDay())}:${dateCorrect(date.getMonth())}:${date.getFullYear()}` || <br/>//'date->date' || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringDate = `${dateCorrect(date.getDay())}.${dateCorrect(date.getMonth())}.${date.getFullYear()}` || <br/>//'date->date' || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = `${new Intl.DateTimeFormat("en-US", {weekday: "long"}).format(date)}` || <br/> //'date->day' || <br/> // пишут студенты
