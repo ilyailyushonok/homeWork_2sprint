@@ -17,7 +17,6 @@ const SuperRange: React.FC<SliderProps> = (props) => {
                     '&:hover': {
                         boxShadow: '0 0 0 8px rgba(58, 133, 137, 0.16)',
                     },
-                    // Добавляем точку внутри ползунка
                     '&::after': {
                         content: '""',
                         position: 'absolute',
