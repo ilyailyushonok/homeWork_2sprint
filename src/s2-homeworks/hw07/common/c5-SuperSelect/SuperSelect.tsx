@@ -42,7 +42,8 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
 
     const finalSelectClassName = s.select + (className ? ' ' + className : '')
 
-    return (
+    return (<div className={s.container}>
+        <span>Выберите тему</span>
         <select
             className={finalSelectClassName}
             onChange={onChangeCallback}
@@ -50,6 +51,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         >
             {mappedOptions}
         </select>
+        </div>
     )
 }
 
