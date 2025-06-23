@@ -42,11 +42,10 @@ const HW13 = () => {
                 setImage(success200)
                 // дописать
                 setText('...всё ок)')
-                setInfo('код 200 - обычно означает что скорее всего всё ок')
+                setInfo('код 200 - обычно означает что скорее всего всё ок)')
             })
             .catch((e) => {
                 // дописать
-                debugger
                 if(e.response.status === 500) {
                     setCode('Ошибка 500!')
                     setImage(error500)
@@ -64,7 +63,6 @@ const HW13 = () => {
                     setImage(errorUnknown)
                     setText('Network Error')
                     setInfo('AxiosError')
-
                 }
 
             })

@@ -1,7 +1,14 @@
 .buttonsContainer {
+button{
+    margin-right: 24px;
+}
+    margin-bottom: 90px;
 }
 
 .responseContainer {
+    display: flex;
+    align-items: center;
+    gap: 90px;
 }
 
 .imageContainer {
