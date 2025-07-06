@@ -65,23 +65,31 @@ const HW15 = () => {
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        setPage(newPage)
-        setCount(newCount)
+         setPage(newPage)
+         setCount(newCount)
          sendQuery({sort,page,count})
         //   setSearchParams()
-
+        setSearchParams({
+            sort,
+            page: newPage.toString(),
+            count: newCount.toString()
+        })
         //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
-         setSort(newSort)
-         setPage(1) // при сортировке сбрасывать на 1 страницу
+          setSort(newSort)
+          setPage(1) // при сортировке сбрасывать на 1 страницу
         // sendQuery()
         sendQuery({sort,page,count})
         // setSearchParams(
-
+        setSearchParams({
+            sort: newSort,
+            page: '1',
+            count: count.toString()
+        })
         //
     }
 
@@ -114,7 +122,7 @@ const HW15 = () => {
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
-                    setCount={setCount}
+                    setCount={setCount}//
                     totalCount={totalCount}
                     onChange={onChangePagination}
                 />
