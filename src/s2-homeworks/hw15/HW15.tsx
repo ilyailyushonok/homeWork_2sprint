@@ -52,9 +52,9 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
-
                 // сохранить пришедшие данные
-                if (res && res.data) {
+
+                if ( res?.data) {
                     setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                 }
@@ -67,7 +67,7 @@ const HW15 = () => {
 
          setPage(newPage)
          setCount(newCount)
-         sendQuery({sort,page,count})
+         sendQuery({sort,page:newPage,count:newCount})
         //   setSearchParams()
         setSearchParams({
             sort,
@@ -79,11 +79,10 @@ const HW15 = () => {
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
           setSort(newSort)
           setPage(1) // при сортировке сбрасывать на 1 страницу
         // sendQuery()
-        sendQuery({sort,page,count})
+        sendQuery({sort,page:1,count})
         // setSearchParams(
         setSearchParams({
             sort: newSort,
@@ -95,13 +94,15 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
-    }, [])
+        setSort(params.sort || '')
+        sendQuery({sort: params.sort || '',page: +params.page||1, count: +params.count||4})
+    }, [searchParams])
 
-    const mappedTechs = techs.map(t => (
-        <div key={t.id} className={s.row}>
+    const mappedTechs = techs.map(t => {
+
+        return (<div key={t.id} className={s.row}>
             <div id={'hw15-tech-' + t.id} className={s.tech}>
                 {t.tech}
             </div>
@@ -109,8 +110,8 @@ const HW15 = () => {
             <div id={'hw15-developer-' + t.id} className={s.developer}>
                 {t.developer}
             </div>
-        </div>
-    ))
+        </div>)
+    })
 
     return (
         <div id={'hw15'}>
@@ -122,7 +123,6 @@ const HW15 = () => {
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
-                    setCount={setCount}//
                     totalCount={totalCount}
                     onChange={onChangePagination}
                 />

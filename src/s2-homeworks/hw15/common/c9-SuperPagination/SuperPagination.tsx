@@ -9,12 +9,11 @@ export type SuperPaginationPropsType = {
     itemsCountForPage: number
     totalCount: number
     onChange: (page: number, count: number) => void
-    setCount: (count: number) => void //Я ДОБАВИЛ
 }
 
 const SuperPagination: React.FC<SuperPaginationPropsType> = (
     {
-        page, itemsCountForPage, totalCount, onChange, id = 'hw15', setCount
+        page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
     const lastPage = Math.ceil(totalCount / itemsCountForPage) // пишет студент // вычислить количество страниц
@@ -26,9 +25,9 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
 
     const onChangeSelect = (event: any) => {
         // пишет студент
-
 //тут event --это число в виде строки
-        setCount(Number(event))
+
+        onChange(1, Number(event))
     }
 
     return (
